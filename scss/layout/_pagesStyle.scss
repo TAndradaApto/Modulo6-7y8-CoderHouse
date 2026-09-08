@@ -1,22 +1,28 @@
 @use "../utilities/variables" as v;
+@use "../utilities/mixins" as m;
+
 /*Pagina que contiene el estilo que de momento es utilizado en las demas pages del sitio
 por lo que esta seccion va a afectar a las pages: futbol, hombre, kids y mujer*/
-.tituloImagen{
+.tituloImagen {
     color: v.$colorPrimario;
 }
-.figureImagen{
+
+.figureImagen {
     margin: 0;
     display: inline-block;
     max-width: 100%;
-    img{
+
+    img {
         display: block;
     }
 }
-.filaImagen{
+
+.filaImagen {
     width: 100%;
     margin: 0;
     background-color: v.$colorSecundario;
 }
+
 .mosaicoProductos {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -25,12 +31,36 @@ por lo que esta seccion va a afectar a las pages: futbol, hombre, kids y mujer*/
     margin-top: 2rem;
     margin-bottom: 2rem;
 
-    /*Agrego el transition aca, para el efecto que tendran las cards*/
-    transition: 2.5s ease-out;
-    @media (min-width: 768px){
+    @media (min-width: 768px) {
         grid-template-columns: repeat(3, 1fr);
     }
-    @media (min-width: 1024px){
+
+    @media (min-width: 1024px) {
         grid-template-columns: repeat(4, 1fr);
     }
+}
+.novedades{
+    @include m.flex-center();
+    p{
+        font-size: clamp(20px, 2rem, 50px);
+        font-weight: 900;
+        color: v.$colorPrimario;
+    }
+    .pelota{
+    width: 100px;
+    height: auto;
+    border-radius: 100%;
+    /*Animacion*/
+    animation: rodar 10s ease-in-out infinite;
+    transition: 1s;
+}
+
+@keyframes rodar {
+    0% {
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(1440deg);
+    }
+}
 }

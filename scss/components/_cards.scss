@@ -3,6 +3,7 @@
 /*Estas son las cards que utilizo en las paginas con productos*/
 .card {
     background-color: v.$colorPrimario;
+    transition: 1s ease-out;
     &:hover{
         transform: scale(0.96);
     }
